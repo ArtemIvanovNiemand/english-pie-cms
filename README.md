@@ -166,7 +166,7 @@ material-dashboard-react
         ├── RTLPage
         │   └── RTLPage.jsx
         ├── TableList
-        │   └── TableList.jsx
+        │   └── index.jsx
         ├── Typography
         │   └── Typography.jsx
         ├── UpgradeToPro

@@ -13,26 +13,22 @@ import Menu from '@material-ui/icons/Menu';
 import Button from 'src/components/CustomButtons/Button.jsx';
 import headerStyle from 'src/assets/jss/material-dashboard-react/components/headerStyle.jsx';
 import AdminNavbarLinks from './AdminNavbarLinks.jsx';
-import RTLNavbarLinks from './RTLNavbarLinks.jsx';
-
 
 function Header({ ...props }) {
   function makeBrand() {
     let name;
     props.routes.map((prop, key) => {
       if (prop.layout + prop.path === props.location.pathname) {
-        name = props.rtlActive ? prop.rtlName : prop.name;
+        name = prop.name;
       }
       return null;
     });
     return name;
   }
   const { classes, color } = props;
-  const appBarClasses = classNames({
-    [` ${classes[color]}`]: color,
-  });
+
   return (
-    <AppBar className={classes.appBar + appBarClasses}>
+    <AppBar className={classes.appBar}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
@@ -41,7 +37,7 @@ function Header({ ...props }) {
           </Button>
         </div>
         <Hidden smDown implementation="css">
-          {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+          <AdminNavbarLinks />
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton
